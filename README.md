@@ -84,9 +84,9 @@ Veri erişim kodunu merkezi bir yere toplamak, farklı uygulama bölümlerinin a
 
 **Bakımı Kolaylaştırır**: Veri erişim kodları tek bir noktada toplandığı için bakım daha kolay hale gelir.
 
-Kodun Test Edilebilirliğini Artırır: Mock sınıflarla veri tabanına ihtiyaç duymadan test yapılabilir.
+**Kodun Test Edilebilirliğini Artırır**: Mock sınıflarla veri tabanına ihtiyaç duymadan test yapılabilir.
 
-Kodun Modüler Yapıda Olmasını Sağlar: Veri erişim ve iş mantığı ayrıldığı için kod daha düzenli hale gelir ve daha kolay genişletilebilir.
+**Kodun Modüler Yapıda Olmasını Sağlar**: Veri erişim ve iş mantığı ayrıldığı için kod daha düzenli hale gelir ve daha kolay genişletilebilir.
 
 Repository Pattern, yazılım geliştirme süreçlerinde veri tabanı işlemlerini düzenleyerek kodun daha temiz, modüler ve test edilebilir olmasını sağlar.
 
