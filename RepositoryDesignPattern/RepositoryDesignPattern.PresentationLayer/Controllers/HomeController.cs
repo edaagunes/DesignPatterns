@@ -1,13 +1,13 @@
-﻿using DesignPattern.Repository.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RepositoryDesignPattern.PresentationLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DesignPattern.Repository.Controllers
+namespace RepositoryDesignPattern.PresentationLayer.Controllers
 {
 	public class HomeController : Controller
 	{
