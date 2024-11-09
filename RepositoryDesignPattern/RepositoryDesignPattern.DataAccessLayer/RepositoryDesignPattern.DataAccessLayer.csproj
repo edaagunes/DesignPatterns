@@ -19,10 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\RepositoryDesignPattern.EntityLayer\RepositoryDesignPattern.EntityLayer.csproj" />
   </ItemGroup>
 
