@@ -12,7 +12,7 @@
 		}
 		public abstract string PlanType(string planType);
 		public abstract int CountPerson(int countPerson);
-		public abstract decimal Price(double price);
+		public abstract double Price(double price);
 		public abstract string Resolution(string resolution);
 		public abstract string Content(string content);
 	}
