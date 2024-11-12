@@ -8,7 +8,7 @@
 
 📈 CQRS (Command Query Responsibility Segregation) Design Pattern : Veri okuma ve yazma işlemlerini ayırarak performans ve ölçeklenebilirliği artırır.
 
-📝 Template Method Design Pattern : Algoritmanın iskeletini belirlerken, bazı adımların alt sınıflar tarafından özelleştirilmesine izin verir.
+📝 [Template Method Design Pattern](#---template-method-design-pattern) : Algoritmanın iskeletini belirlerken, bazı adımların alt sınıflar tarafından özelleştirilmesine izin verir.
 
 👀 Observer Design Pattern : Bir nesnede değişiklik olduğunda bağlı nesnelerin otomatik güncellenmesini sağlar, nesneler arasındaki bağımlılığı azaltır.
 
@@ -32,7 +32,64 @@
 
 - https://www.dofactory.com/net/design-patterns
 
-### 📂 - Repository Design Pattern
+
+## 📝 - Template Method Design Pattern
+
+Template Method, bir algoritmanın veya sürecin genel yapısını belirleyen, ancak bazı adımların alt sınıflar tarafından özelleştirilmesine izin veren bir davranışsal tasarım desenidir. Bu desen, abstract bir sınıf (şablon sınıf) ve ona bağlı bir veya birden fazla concrete sınıf (somut sınıf) ile uygulanır.
+
+## 🔸 Template Method Deseninin Temel Bileşenleri
+
+1. **Abstract Class (Şablon Sınıf)** : Sürecin genel akışını tanımlar ve sırasını belirler. Bazı adımlar abstract (soyut) metotlar olarak belirtilir, bu metotların implementasyonu alt sınıflara bırakılır.
+
+2. **Concrete Class (Somut Sınıflar)** : Şablon sınıfta tanımlanan abstract metotları kendi ihtiyaçlarına göre özelleştirir. Böylece her alt sınıf aynı genel akışa bağlı kalırken kendine has detayları uygulayabilir.
+
+## 🔸 Template Method Kullanım Senaryoları
+
+* Bir algoritmanın temel yapısı sabittir, ancak bazı adımların alt sınıflar tarafından farklı şekillerde uygulanması gerekiyorsa.
+
+* Kod tekrarını azaltmak ve ortak işlemleri merkezi bir sınıfta toplamak istendiğinde.
+
+* Belirli bir süreç için temel yapıyı koruyup, detayları alt sınıflara bırakmak isteniyorsa.
+
+## 🔸 Örnek: Alışveriş Sepetinde Ödeme Süreci
+
+Bu örnekte, alışveriş sepetindeki ürünlerin satın alma süreci için Template Method deseni kullanacağız. Süreç her ürün için dört temel adımdan oluşur:
+
+1. **Başlangıç**: İşlemin başlatılması.
+2. **Ürün Seçimi**: Ürünün kullanıcı tarafından seçilmesi.
+3. **Ödeme**: Ödeme işleminin yapılması.
+4. **Bitiş**: İşlemin tamamlanması.
+
+Örneğimizde televizyon ve buzdolabı satın alma işlemleri aynı akışa sahip olacak; ancak her bir ürünün seçim ve ödeme adımları farklılık gösterecek.
+
+## 🔸 Örnek Akış
+
+### Şablon Sınıf: ShoppingProcess
+
+Bu sınıf, satın alma sürecinin adımlarını ve sırasını belirler. Ürün Seçimi ve Ödeme adımları soyut olarak tanımlanır, böylece her ürün için bu adımlar alt sınıflarda özelleştirilebilir.
+
+### Alt Sınıf: TVPurchase
+
+Televizyon satın alma süreci, ShoppingProcess şablon sınıfını temel alır, ancak Ürün Seçimi ve Ödeme adımlarını televizyon için özelleştirir.
+
+### Alt Sınıf: RefrigeratorPurchase
+
+Buzdolabı satın alma süreci de ShoppingProcess şablon sınıfını temel alır ve bu adımları buzdolabı için özelleştirir.
+
+## 🔸 Template Method Deseninin Avantajları
+
+**Kod Tekrarını Azaltma**: Ortak adımlar bir yerde toplanarak kod tekrarı azaltılır.
+
+**Modülerlik ve Sürdürülebilirlik**: Farklı ürünlerin kendi özel süreç adımlarını tanımlaması sağlanır, bu da her alt sınıfın yalnızca kendi özelleştirilmiş adımlarını içermesine olanak tanır.
+
+**Esneklik**: Temel akış sabit kalırken, her ürün için süreç adımları farklılaştırılabilir.
+
+## 🔸 Sonuç
+
+Template Method deseni, algoritmanın veya sürecin genel yapısını koruyarak, alt sınıfların yalnızca değişen veya spesifik adımları uyarlamasını sağlar. Bu desen, özellikle aynı sürecin farklı detaylar gerektirdiği durumlarda esneklik ve kod temizliği sağlar.
+
+
+## 📂 - Repository Design Pattern
 
 Repository Design Pattern, yazılım geliştirme süreçlerinde veri erişimini düzenlemek ve yönetmek amacıyla kullanılan bir tasarım desenidir. Bu desenin temel amacı, veri tabanı işlemlerini soyutlamak, veri erişim işlemlerini daha modüler hale getirmek ve veri erişimini iş mantığından ayırmaktır. Repository deseni, veritabanıyla ilgili tüm işlemleri tek bir merkezi yapı altında toplar ve veri erişimini kolaylaştırır.
 
@@ -89,4 +146,6 @@ Veri erişim kodunu merkezi bir yere toplamak, farklı uygulama bölümlerinin a
 **Kodun Modüler Yapıda Olmasını Sağlar**: Veri erişim ve iş mantığı ayrıldığı için kod daha düzenli hale gelir ve daha kolay genişletilebilir.
 
 Repository Pattern, yazılım geliştirme süreçlerinde veri tabanı işlemlerini düzenleyerek kodun daha temiz, modüler ve test edilebilir olmasını sağlar.
+
+
 
