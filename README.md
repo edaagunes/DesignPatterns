@@ -12,7 +12,7 @@
 
 👀 Observer Design Pattern : Bir nesnede değişiklik olduğunda bağlı nesnelerin otomatik güncellenmesini sağlar, nesneler arasındaki bağımlılığı azaltır.
 
-🛠️ Unit of Work Design Pattern : Veritabanı işlemlerini bir işlemde toplar, hepsinin başarılı olması durumunda veritabanına yazar.
+🛠️ [Unit of Work Design Pattern](#%EF%B8%8F-unit-of-work-design-pattern) : Veritabanı işlemlerini bir işlemde toplar, hepsinin başarılı olması durumunda veritabanına yazar.
 
 📂 [Repository Design Pattern](#---repository-design-pattern) : Veri erişimini soyutlayarak veri ile iş mantığını birbirinden ayırır.
 
@@ -88,6 +88,56 @@ Buzdolabı satın alma süreci de ShoppingProcess şablon sınıfını temel al�
 
 Template Method deseni, algoritmanın veya sürecin genel yapısını koruyarak, alt sınıfların yalnızca değişen veya spesifik adımları uyarlamasını sağlar. Bu desen, özellikle aynı sürecin farklı detaylar gerektirdiği durumlarda esneklik ve kod temizliği sağlar.
 
+
+## 🛠️ Unit of Work Design Pattern
+
+**Unit of Work Design Pattern**, veri tabanı işlemlerini bir araya toplayarak tek bir işlem (transaction) olarak yönetilmesini sağlayan bir davranışsal tasarım desenidir. Bu desen, tüm işlemlerin başarılı olması durumunda veritabanına yazılmasını, aksi takdirde hiçbir işlemin gerçekleştirilmemesini sağlar.
+
+## 🔺 Unit of Work Tasarım Deseni’nin Temel Bileşenleri
+
+- **Unit of Work (Çalışma Birimi)**: Veritabanı işlemlerini koordine eden ana sınıftır. İşlemleri gruplar, sıraya koyar ve başarılı bir şekilde tamamlanmalarını sağlar. Tüm işlemler tek bir transaction altında gerçekleştirilir, bu sayede işlemlerin güvenliği sağlanır.
+
+- **Repository (Depo)**: Veritabanı işlemleri için kullanılan özel sınıflardır. Her veri tabanı nesnesi için bir repository sınıfı bulunabilir. Bu sınıflar, veritabanına erişim işlemlerini ve sorguları gerçekleştirir. Repository Pattern ile uyumlu çalışır ve veri tabanına erişimle ilgili tüm işlemleri içerir.
+
+- **Entity (Varlık)**: Veritabanındaki tablolara karşılık gelen sınıflardır. Bu nesneler Repository sınıfları aracılığıyla CRUD (Create, Read, Update, Delete) işlemlerinde kullanılır.
+
+## 🔺 Unit of Work Tasarım Deseni’nin Amaçları
+
+1. **Veritabanı İşlemlerini Gruplama**: Tüm işlemleri bir araya toplayarak tek bir iş birimi olarak ele alır. Böylece işlemler daha kolay yönetilir ve koordine edilir.
+
+2. **İşlemlerin Sırasını Belirleme**: İşlemlerin belirli bir sıra ile gerçekleşmesini sağlar. Bu sıraya göre veritabanı üzerinde gerekli güncellemeleri yapar.
+
+3. **Tutarlılığı Sağlama**: Veritabanı işlemleri sırasında bir hata oluşursa, tüm işlemler geri alınır. Bu sayede veritabanının tutarlılığı korunmuş olur.
+
+4. **Tekrar Kullanılabilirlik**: Daha modüler ve yeniden kullanılabilir bir yapı sağlar. Veritabanı işlemleri tek bir yapı altında toplandığından, kodun bakımı daha kolay hale gelir.
+
+## 🔺 Kullanım Alanları
+
+Unit of Work tasarım deseni, özellikle büyük ve karmaşık veri tabanına sahip uygulamalarda sıkça kullanılır. Örneğin:
+
+- **E-Ticaret Siteleri**: Yoğun veri işlemlerinin bulunduğu ve işlemlerin bir bütün olarak yapılması gereken sistemlerde.
+
+- **Finansal Uygulamalar**: Farklı işlemlerin toplu şekilde gerçekleştiği ve hata durumunda geri alınması gereken uygulamalarda.
+
+## 🔺 Unit of Work Tasarım Deseni’nin Sağladığı Avantajlar
+
+- **Performans**: Veritabanı işlemleri toplu halde gerçekleştirildiğinden maliyetleri düşürür ve performansı artırır.
+
+- **Bakım Kolaylığı**: Tüm veri tabanı işlemleri tek bir yapı içinde toplandığı için bakımı ve genişletilmesi daha kolaydır.
+
+- **Güvenlik ve Tutarlılık**: Hata durumunda tüm işlemleri geri alarak veri tabanının güvenliğini ve tutarlılığını sağlar.
+
+## 🔺  Örnek Senaryo: E-Ticaret Sipariş İşlemleri
+
+Bu senaryoda, bir e-ticaret uygulamasında bir sipariş süreci ele alınır. Bir siparişin başarılı bir şekilde kaydedilmesi, envanterin güncellenmesi ve kullanıcıya bildirim gönderilmesi gerekmektedir. Eğer bu işlemlerden herhangi birinde hata oluşursa, tüm işlemler geri alınmalıdır.
+
+Akış:
+
+1. Sipariş oluşturulur ve işleme alınır.
+2. Ürün envanteri güncellenir.
+3. Kullanıcıya sipariş bilgisi gönderilir.
+4. Eğer tüm işlemler başarılı ise, transaction tamamlanır.
+5. Bir hata durumunda ise tüm işlemler geri alınır.
 
 ## 📂 - Repository Design Pattern
 
