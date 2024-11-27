@@ -31,6 +31,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPattern.DataAccessLay
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPattern.BusinessLayer", "UnitOfWorkDesignPattern\DesignPattern.BusinessLayer\DesignPattern.BusinessLayer.csproj", "{E20C0CE3-615E-4D88-86D5-9EBC2D62F692}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CQRSDesignPattern", "CQRSDesignPattern", "{19606728-C0AE-413C-B4EB-937FE8E30952}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPattern.CQRS", "CQRSDesignPattern\DesignPattern.CQRS\DesignPattern.CQRS.csproj", "{102EDC65-422D-46BB-98DD-E8B053BAE8CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +81,10 @@ Global
 		{E20C0CE3-615E-4D88-86D5-9EBC2D62F692}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E20C0CE3-615E-4D88-86D5-9EBC2D62F692}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E20C0CE3-615E-4D88-86D5-9EBC2D62F692}.Release|Any CPU.Build.0 = Release|Any CPU
+		{102EDC65-422D-46BB-98DD-E8B053BAE8CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{102EDC65-422D-46BB-98DD-E8B053BAE8CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{102EDC65-422D-46BB-98DD-E8B053BAE8CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{102EDC65-422D-46BB-98DD-E8B053BAE8CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +100,7 @@ Global
 		{7CE9FB6B-4AF5-4AE3-9024-A9EEFCDF4887} = {E44A4932-12CD-4E3C-BF2A-827E295A5259}
 		{DAF32407-65F2-4DEE-B8F0-13499FA6A2AB} = {E44A4932-12CD-4E3C-BF2A-827E295A5259}
 		{E20C0CE3-615E-4D88-86D5-9EBC2D62F692} = {E44A4932-12CD-4E3C-BF2A-827E295A5259}
+		{102EDC65-422D-46BB-98DD-E8B053BAE8CC} = {19606728-C0AE-413C-B4EB-937FE8E30952}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {64DA2CF5-60A4-421C-B209-32B0E9352427}
