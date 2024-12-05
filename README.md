@@ -6,7 +6,7 @@
 
 🔗 Chain of Responsibility Design Pattern : İsteklerin bir işleyici zinciri üzerinden yönlendirilmesini sağlar; her işleyici isteği işleyip işlemeyeceğine kendisi karar verir.
 
-📈 CQRS (Command Query Responsibility Segregation) Design Pattern : Veri okuma ve yazma işlemlerini ayırarak performans ve ölçeklenebilirliği artırır.
+📈 [CQRS (Command Query Responsibility Segregation) Design Pattern](#---cqrs-command-query-responsibility-segregation) : Veri okuma ve yazma işlemlerini ayırarak performans ve ölçeklenebilirliği artırır.
 
 📝 [Template Method Design Pattern](#---template-method-design-pattern) : Algoritmanın iskeletini belirlerken, bazı adımların alt sınıflar tarafından özelleştirilmesine izin verir.
 
@@ -31,6 +31,55 @@
 - https://refactoring.guru/design-patterns
 
 - https://www.dofactory.com/net/design-patterns
+
+
+## 📈 - CQRS (Command Query Responsibility Segregation)
+
+CQRS (Command Query Responsibility Segregation), yazılım uygulamalarında veri okuma ve yazma işlemlerini ayrı sorumluluklarla yönetmeyi sağlayan bir tasarım desenidir. Bu sayede uygulama performansı, ölçeklenebilirliği ve sürdürülebilirliği artırılabilir.
+
+## ⚫ CQRS Deseninin Temel Bileşenleri
+
+1. **Commands (Komutlar)**: Uygulamanın durumunu değiştiren işlemlerden sorumludur. Veri ekleme, güncelleme veya silme işlemlerini içerir. Commands, geriye veri döndürmez; yalnızca işlem sonucunu bildirir.
+
+2. **Queries (Sorgular)**: Sistemin durumunu değiştirmeden veri okuma işlemlerini yönetir. Queries yalnızca belirtilen veri modelini döner ve veriyi değiştirmez.
+
+## ⚫ CQRS Kullanım Senaryoları
+
+- Yüksek veri trafiği olan sistemlerde performans artırımı.
+  
+- Kompleks iş kuralları veya sık değişen iş kuralları.
+  
+- Hata toleransının yüksek olduğu sistemler: Bir serviste hata oluştuğunda diğer servislerin etkilenmemesi gerektiğinde.
+
+## ⚫ Örnek: CQRS Yapısı
+
+Bu örnek, Kullanıcı Yönetimi uygulaması için CQRS'nin temel yapısını gösterir.
+
+### Komut: Kullanıcı Ekleme
+
+Kullanıcı eklemek, sistemin durumunu değiştirdiği için Command olarak ele alınır. Bu işlemde:
+
+* Command: Kullanıcı bilgilerini (Ad, Soyad, E-posta) içerir.
+* Command Handler: Kullanıcıyı veritabanına ekler.
+* Result: Geriye işlem sonucu döner, veri döndürülmez.
+
+### Sorgu: Kullanıcı Bilgisi Getirme
+
+Kullanıcı bilgisi almak, sistemin durumunu değiştirmediği için Query olarak ele alınır. Bu işlemde:
+
+1. **Query**: Kullanıcı ID’sini içerir.
+2. **Query Handler**: Kullanıcı bilgisini veritabanından getirir.
+3. **Result**: Kullanıcı verisi döner, herhangi bir değişiklik yapılmaz.
+   
+## ⚫ CQRS'nin Avantajları
+
+- **Performans ve Ölçeklenebilirlik:** Yazma ve okuma işlemlerini ayırarak her işlemi ayrı optimize etme imkanı sağlar.
+- **Sürdürülebilirlik:** Her bir model kendi sorumluluğunu ele aldığı için daha modüler bir yapı oluşturur.
+- **Deneyim Odaklı Tasarım:** Komut ve sorgu işlemleri, bağımsız olarak en uygun araç ve tekniklerle ele alınabilir.
+  
+## ⚫ Sonuç
+
+CQRS, karmaşık veri yönetimi gereksinimlerini olan projelerde oldukça etkilidir. Ancak, bu tasarım deseni küçük projeler için gereksiz karmaşıklık yaratabileceğinden, büyük ve karmaşık projelerde tercih edilmelidir.
 
 
 ## 📝 - Template Method Design Pattern
