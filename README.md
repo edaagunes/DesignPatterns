@@ -36,18 +36,18 @@
 
 Chain of Responsibility (Sorumluluk Zinciri) tasarım deseni, isteklerin işleyici nesnelerden oluşan bir zincir boyunca iletilmesini sağlayan bir davranışsal tasarım desenidir. Bu desen, her işleyicinin isteği işleyip işleyemeyeceğine karar vermesine ve isteği gerektiğinde zincirdeki bir sonraki işleyiciye iletmesine olanak tanır. Bu yapı sayesinde, istekler bir zincir boyunca iletilir ve uygun işleyici tarafından ele alınır.
 
-## Amaç
+## 🔸 Amaç
 
 Chain of Responsibility deseni, isteklerin hiyerarşik bir şekilde işlenmesini sağlar. İşleyiciler, belirli bir işleme yeteneğine sahip nesnelerdir ve bu istek zincir boyunca dolaşarak uygun işleyiciye ulaşır.
 
-## Temel Bileşenler
+## 🔸 Temel Bileşenler
 
 - **Handler (İşleyici):** Gelen isteği işleyen ya da bir sonraki işleyiciye ileten nesne.
 - **ConcreteHandler (Somut İşleyici):** Gerçek işleme mantığını barındıran sınıflar.
 - **Client (Müşteri):** İsteği başlatan ve zinciri harekete geçiren sınıf. Chain of Responsibility deseni, bir isteğin sıralı olarak işlenmesi gereken senaryolar için idealdir. Bu deseni aşağıdaki gibi durumlarda kullanabilirsiniz:
 - **Kredi Onay Süreci:** Veznedar, şube müdürü, bölge müdürü gibi yetkililerin sırasıyla kredi talebini onaylaması.
 
-## Örnek Proje: Kredi Onay Süreci
+## 🔸 Örnek Proje: Kredi Onay Süreci
 
 Bir bankanın kredi onay sürecini simüle eden örnek senaryoda, müşterinin talep ettiği kredi tutarına göre işlem yetkisi olan kişilere sırasıyla başvurulur:
 
@@ -59,7 +59,7 @@ Bir bankanın kredi onay sürecini simüle eden örnek senaryoda, müşterinin t
  
 Bu senaryoda her işleyici, talebi ya işleyip onaylar ya da bir üst yetkiliye iletir. Bu yapı, sistemin esnek ve genişletilebilir olmasını sağlar.
 
-## Avantajlar
+## 🔸 Avantajlar
 
 - **Esneklik:** Yeni işleyiciler zincire kolayca eklenebilir veya çıkartılabilir.
 
