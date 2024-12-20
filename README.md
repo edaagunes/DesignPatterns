@@ -16,7 +16,7 @@
 
 📂 [Repository Design Pattern](#---repository-design-pattern) : Veri erişimini soyutlayarak veri ile iş mantığını birbirinden ayırır.
 
-🧩 Composite Design Pattern : "Bütün-parça" ilişkisini yönetir ve nesneleri aynı yapıda işler.
+🧩 [Composite Design Pattern](#-composite-design-pattern) : "Bütün-parça" ilişkisini yönetir ve nesneleri aynı yapıda işler.
 
 💬 Mediator Design Pattern : Nesneler arasındaki iletişimi merkezi bir aracı üzerinden gerçekleştirir.
 
@@ -182,7 +182,7 @@ Observer Design Pattern (Gözlemci Tasarım Deseni), bir nesne değiştiğinde o
 
 * **Observer (Gözlemci):** Subject’i izleyen ve durum değişikliklerinden haberdar olmak isteyen nesnedir. Gözlemciler, Subject’in güncellemelerini alır ve buna göre kendi durumlarını günceller.
 
-## Observer Design Pattern Kullanım Senaryoları
+## 🔹 Observer Design Pattern Kullanım Senaryoları
 
 - **Finans Sektörü:** Örneğin, borsa sistemlerinde borsacıların, finansal kağıtlardaki değişikliklerden anında haberdar olması gereken bir yapı kurmak için kullanılır. Finans kağıtlarındaki herhangi bir değişiklik tüm borsacılara bildirilir.
 
@@ -324,6 +324,58 @@ Veri erişim kodunu merkezi bir yere toplamak, farklı uygulama bölümlerinin a
 **Kodun Modüler Yapıda Olmasını Sağlar**: Veri erişim ve iş mantığı ayrıldığı için kod daha düzenli hale gelir ve daha kolay genişletilebilir.
 
 Repository Pattern, yazılım geliştirme süreçlerinde veri tabanı işlemlerini düzenleyerek kodun daha temiz, modüler ve test edilebilir olmasını sağlar.
+
+## 🧩 Composite Design Pattern
+
+Composite Design Pattern, bir "bütün ve parçaları" ilişkisini temsil eden ve nesneler arası hiyerarşik bir yapı oluşturan bir tasarım desenidir. Bu desen, bir nesnenin içinde diğer nesneleri içerebileceği, bu nesnelerin gruplarını oluşturabileceği ve böylece tekil nesnelerin veya nesne gruplarının aynı şekilde ele alınabilmesini sağlar. Yapısal bir tasarım deseni olarak Composite, özellikle hiyerarşik yapılarda, yani nesnelerin ağaç yapısında organize edildiği durumlarda kullanılır.
+
+1. **Bütün-Parça İlişkisini Yönetme**
+   
+Composite deseni, istemcinin hem tekil nesnelerle hem de nesne gruplarıyla aynı arayüz aracılığıyla etkileşime girmesini sağlar. Böylece, istemci kodu bir nesnenin tekil bir nesne mi yoksa grup mu olduğunu ayırt etmek zorunda kalmaz.
+
+2. **Kodun Basitleştirilmesi**
+   
+Bu desen, istemci kodunu basitleştirerek karmaşıklığı azaltır. Tek bir nesne veya nesne grubu üzerinde işlem yapılması gerektiğinde istemcinin yalnızca ana nesneye erişmesi yeterlidir; alt bileşenlere tek tek erişmesi gerekmez.
+
+3. **Kod Tekrarını Azaltma ve Bakımı Kolaylaştırma**
+   
+Tekil nesneler ve kompozit yapılar aynı arayüz aracılığıyla yönetildiği için kod tekrarını azaltır ve bakımı kolaylaştırır. Yeni nesne türleri eklemek gerektiğinde sadece yeni bir Leaf veya Composite türü oluşturmak yeterlidir.
+
+### 🔸 Composite Tasarım Deseni’nin Bileşenleri
+
+* Component (Bileşen): Tekil nesnelerin ve kompozit yapıların ortak özelliklerini tanımlar. Bu bileşen, Leaf ve Composite nesnelerin kullanacağı ortak bir arayüzdür. Örneğin, bir display veya add metodu burada tanımlanabilir.
+
+* Leaf (Yaprak): Kompozit yapının en alt seviyesinde yer alan ve kendi başına işlem yapabilen bağımsız bileşenlerdir. Genellikle, alt bileşen içermezler ve en temel işlemleri sağlarlar.
+
+* Composite (Kompozit): Diğer bileşenleri içerebilen bir bileşendir. Alt bileşenleri listeleyebilir, yeni bileşenler ekleyebilir veya mevcut bileşenleri çıkarabilir. Böylece, bir ağaç yapısındaki dalları temsil eder.
+
+### 🔸 Composite Tasarım Desenini Kullanma Durumları
+
+- Düzensiz Bir Nesne Yapısı Varsa: Nesnelerden oluşan bir grup ve tekil nesnelerle çalışılıyorsa.
+  
+- Tekil ve Gruplu Nesnelerin Aynı İşlemleri Yapması Gerekiyorsa: Örneğin, tek bir dosyanın açılması veya bir dosya grubunun topluca açılması gibi.
+
+- Hiyerarşik Nesneler Gerekiyorsa: Menü yapıları, grafik nesneleri, belge ağaçları gibi hiyerarşik yapılar oluşturulması gereken durumlarda.
+
+### 🔸 Composite Design Pattern Çalışma Akışı
+
+1. Arayüz Tanımlama: Component arayüzü, tüm bileşenler için ortak olan işlemleri tanımlar.
+ 
+2. Leaf ve Composite Nesnelerinin Oluşturulması: Leaf sınıfı tekil nesneleri tanımlar; Composite sınıfı ise birden fazla bileşeni tutarak işlemleri gruplar.
+ 
+3. Ağaç Yapısının Oluşturulması: Composite nesneleri içine Leaf nesneleri eklenerek bir ağaç yapısı oluşturulur.
+ 
+4. İstemci Kodunun Basitleştirilmesi: İstemci kodu, her bir nesnenin kompozit mi yoksa yaprak mı olduğunu ayırt etmek zorunda kalmadan, ağaç yapısındaki tüm nesnelerle tek bir arayüz üzerinden işlem yapabilir.
+
+### 🔸 Composite Design Pattern Kullanmanın Avantajları
+
+* Kodun Basit ve Okunabilir Olması: İstemci kodunun ağaç yapısındaki alt bileşenlerle tek tek uğraşmasına gerek kalmaz.
+  
+* Modüler ve Genişletilebilir Yapı: Yeni bileşen türleri eklemek ve hiyerarşiyi genişletmek kolaydır.
+  
+* Karmaşıklığı Azaltma: Ağaç yapısı sayesinde, nesneler arası ilişkiler basitçe yönetilebilir.
+  
+Composite Design Pattern, hiyerarşik yapıları ve nesneler arası bağımlılıkları yönetmek isteyen yazılımlar için oldukça yararlı ve esnek bir çözümdür.
 
 ## 🔄 Iterator Design Pattern 
 
