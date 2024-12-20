@@ -10,7 +10,7 @@
 
 📝 [Template Method Design Pattern](#---template-method-design-pattern) : Algoritmanın iskeletini belirlerken, bazı adımların alt sınıflar tarafından özelleştirilmesine izin verir.
 
-👀 Observer Design Pattern : Bir nesnede değişiklik olduğunda bağlı nesnelerin otomatik güncellenmesini sağlar, nesneler arasındaki bağımlılığı azaltır.
+👀 [Observer Design Pattern](#-observer-design-pattern) : Bir nesnede değişiklik olduğunda bağlı nesnelerin otomatik güncellenmesini sağlar, nesneler arasındaki bağımlılığı azaltır.
 
 🛠️ [Unit of Work Design Pattern](#%EF%B8%8F-unit-of-work-design-pattern) : Veritabanı işlemlerini bir işlemde toplar, hepsinin başarılı olması durumunda veritabanına yazar.
 
@@ -171,6 +171,50 @@ Buzdolabı satın alma süreci de ShoppingProcess şablon sınıfını temel al�
 ## 🔸 Sonuç
 
 Template Method deseni, algoritmanın veya sürecin genel yapısını koruyarak, alt sınıfların yalnızca değişen veya spesifik adımları uyarlamasını sağlar. Bu desen, özellikle aynı sürecin farklı detaylar gerektirdiği durumlarda esneklik ve kod temizliği sağlar.
+
+## 👀 Observer Design Pattern
+
+Observer Design Pattern (Gözlemci Tasarım Deseni), bir nesne değiştiğinde ona bağlı diğer nesnelerin otomatik olarak güncellenmesini sağlayan bir davranışsal tasarım desenidir. Bu desen, one-to-many (birden çoğa) ilişkilerin olduğu durumlarda nesneler arasındaki bağımlılığı azaltır ve böylece bir nesnenin durumundaki değişiklikleri diğer nesnelere otomatik olarak bildirir.
+
+## 🔹 Observer Design Pattern’in Temel Bileşenleri
+
+* **Subject (Özne):** Durumu takip edilen ve gözlemcilere güncelleme gönderen ana nesnedir. Subject, değişiklik olduğunda tüm bağlı gözlemcilere (observer) bildirim yapar.
+
+* **Observer (Gözlemci):** Subject’i izleyen ve durum değişikliklerinden haberdar olmak isteyen nesnedir. Gözlemciler, Subject’in güncellemelerini alır ve buna göre kendi durumlarını günceller.
+
+## Observer Design Pattern Kullanım Senaryoları
+
+- **Finans Sektörü:** Örneğin, borsa sistemlerinde borsacıların, finansal kağıtlardaki değişikliklerden anında haberdar olması gereken bir yapı kurmak için kullanılır. Finans kağıtlarındaki herhangi bir değişiklik tüm borsacılara bildirilir.
+
+- **Hava Durumu Uygulamaları:** Bir hava durumu istasyonu, anlık hava durumu bilgilerini çeşitli medya platformlarına (televizyon, radyo, internet siteleri) iletebilir. Hava durumu istasyonu “Subject”, medya platformları ise “Observer” olur. Hava durumu güncellenince tüm gözlemciler bilgilendirilir.
+
+## 🔹 Observer Design Pattern’in Sağladığı Avantajlar
+
+**Bağımlılıkları Azaltır:** Gözlemciler, Subject’e gevşek bir bağlılık ile bağlıdır, bu da daha esnek bir yapı sağlar.
+
+**Dinamik Bildirim:** Subject’in durumu değiştiğinde tüm gözlemciler otomatik olarak güncellenir.
+
+**Sürdürülebilirlik ve Modülerlik:** Yeni gözlemciler kolayca eklenebilir ve mevcut gözlemciler üzerinde değişiklik yapılmadan çıkarılabilir.
+
+## 🔹 Örnek Senaryo: Borsa Sisteminde Finans Kağıtlarının İzlenmesi
+
+Bu örnek senaryoda bir borsa sisteminde finans kağıtlarının izlenmesi için Observer deseni kullanılır:
+
+1. **Subject (Özne):** Finans Kağıdı
+
+Borsa sisteminde finansal bir kağıdın fiyatını takip eden sınıftır. Fiyat değiştiğinde bağlı olan gözlemcilere bu değişiklikleri bildirir.
+
+3. **Observer (Gözlemci):** Yatırımcılar
+   
+Yatırımcılar, finans kağıdını izleyen nesnelerdir. Fiyat değişikliği olduğunda, yatırımcılar bu değişiklikten haberdar edilir ve buna göre kendi işlemlerini planlar.
+
+**Akış:**
+
+1. Finans Kağıdı, tüm yatırımcıları izleyici (observer) olarak kayıt eder.
+2. Finans Kağıdı üzerinde fiyat değişikliği meydana geldiğinde, tüm gözlemciler durum güncellemesi alır.
+3. Her Yatırımcı güncelleme alır ve bu yeni fiyat bilgisine göre işlem yapabilir veya stratejisini değiştirebilir.
+   
+Bu yapıyla birlikte, yatırımcılar finans kağıdının fiyatını sürekli sorgulamak yerine, fiyat değiştiğinde otomatik olarak bilgilendirilmiş olur.
 
 
 ## 🛠️ Unit of Work Design Pattern
