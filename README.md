@@ -22,7 +22,7 @@
 
 🔄 [Iterator Design Pattern](#-iterator-tasarım-deseninin-amaç-ve-avantajları) : Koleksiyon elemanlarını gezmek için bağımsız bir yöntem sunar.
 
-🧱 [Facade Design Pattern](#facade-design-pattern) : Karmaşık sistemlerin işlevlerini sadeleştirerek kolay bir arayüz sağlar.
+🧱 [Facade Design Pattern](#-facade-design-pattern) : Karmaşık sistemlerin işlevlerini sadeleştirerek kolay bir arayüz sağlar.
 
 🖌️ Decorator Design Pattern : Sınıflara dinamik olarak yeni işlevler ekler, mevcut sınıflara dokunmadan özellik katmayı mümkün kılar.
 
