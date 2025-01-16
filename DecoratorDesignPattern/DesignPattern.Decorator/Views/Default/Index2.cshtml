@@ -1,0 +1,24 @@
+﻿@model DesignPattern.Decorator.DAL.Message
+@{
+	Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+	<br /><br />
+	<form method="post">
+		<label>Gönderen</label>
+		<input type="text" class="form-control" asp-for="MessageSender" />
+		<br />
+		<label>Alıcı</label>
+		<input type="text" class="form-control" asp-for="MessageReceiver" />
+		<br />
+		<label>Konu</label>
+		<input type="text" class="form-control" asp-for="MessageSubject" />
+		<br />
+		<label>İçerik</label>
+		<input type="text" class="form-control" asp-for="MessageContent" />
+		<br />
+		<button type="submit" class="btn btn-primary">Gönder</button>
+	</form>
+</div>
