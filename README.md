@@ -22,7 +22,7 @@
 
 🔄 [Iterator Design Pattern](#-iterator-tasarım-deseninin-amaç-ve-avantajları) : Koleksiyon elemanlarını gezmek için bağımsız bir yöntem sunar.
 
-🧱 Facade Design Pattern : Karmaşık sistemlerin işlevlerini sadeleştirerek kolay bir arayüz sağlar.
+🧱 [Facade Design Pattern](#-facade-design-pattern) : Karmaşık sistemlerin işlevlerini sadeleştirerek kolay bir arayüz sağlar.
 
 🖌️ Decorator Design Pattern : Sınıflara dinamik olarak yeni işlevler ekler, mevcut sınıflara dokunmadan özellik katmayı mümkün kılar.
 
@@ -496,3 +496,43 @@ Bir belge yönetim sistemini düşünelim. Bu sistemde belgeler farklı veri yap
 - **Bağımsız ve Esnek Dolaşım:** Aynı koleksiyon üzerinde birden fazla bağımsız iterator çalıştırılabilir ve her iterator nesnesi kendi konumunu saklar.
 
 Iterator Design Pattern, koleksiyonun iç yapısını istemci koddan gizleyerek dolaşımı bağımsız hale getirir ve özellikle farklı koleksiyon türleriyle çalışırken kodun temiz, sürdürülebilir ve anlaşılır olmasını sağlar.
+
+## 🧱 Facade Design Pattern
+
+Facade Design Pattern, karmaşık bir sistemin veya alt sistemlerin işlevlerini basitleştirerek kullanıcıya yalnızca gerekli olan bilgileri ve işlevleri sunan bir tasarım desenidir. Bu desen, alt sistemlerin karmaşıklığını gizler ve kullanıcıya basitleştirilmiş bir arayüz sağlar. Kullanıcı, alt sistemlerle doğrudan etkileşimde bulunmak yerine, bu alt sistemlere erişimi sağlayan bir Facade (yüzey arayüzü) üzerinden işlemlerini gerçekleştirir.
+
+### 🔸 Facade Tasarım Deseninin Temel Amaçları
+
+1. Karmaşıklığı Gizlemek: Facade, alt sistemlerin karmaşık yapısını gizler ve kullanıcılara sadece gerekli olan fonksiyonları sunar. Kullanıcı, alt sistemin detaylarıyla ilgilenmeden işlemleri gerçekleştirebilir.
+
+2. Kolay Kullanım: Facade, sistemin kullanımını basitleştirir. Karmaşık işlemleri daha anlaşılır hale getirir, böylece kullanıcılar sistemi daha rahat ve verimli bir şekilde kullanabilir.
+
+3. Bağımsızlık: Facade, alt sistemlerdeki değişikliklerden kullanıcıyı korur. Alt sistemlerde yapılan değişiklikler Facade üzerinde minimum etki yaratır, bu da kullanıcı kodunun değişmesine gerek kalmadan sistemin bakımını kolaylaştırır.
+
+### 🔸 Facade Design Pattern Bileşenleri
+
+* Facade: Sistemi kullanıcıya sunan ana arayüzdür. Kullanıcı, bu arayüz üzerinden sisteme erişir.
+
+* Alt Sistemler (Subsystems): Facade tarafından gizlenen ve kullanıcıya sunulan karmaşık alt sistemlerdir. Her biri belirli bir işlevi yerine getirir, ancak kullanıcı bunları doğrudan kullanmaz.
+
+* Kullanıcı (Client): Sistemi kullanacak olan kişidir. Kullanıcı, yalnızca Facade üzerinden sisteme erişim sağlar.
+
+### 🔸 Facade Tasarım Deseninin Faydaları
+
+1. Karmaşıklığın Azaltılması: Alt sistemlerin ve bileşenlerin detayları kullanıcıdan gizlenir. Bu sayede kullanıcı sadece gerekli işlevlere odaklanabilir.
+
+2. Kullanıcı Dostu Arayüz: Karmaşık işlemler basitleştirilir, böylece kullanıcı sisteme daha kolay adapte olabilir.
+
+3. Sistem Değişikliklerinden Koruma: Alt sistemlerde yapılan değişiklikler, Facade üzerinden yapılır, böylece kullanıcı kodunun değiştirilmesine gerek kalmaz.
+
+4. Daha İyi Bakım ve Esneklik: Facade, sistemin modülerliğini artırır, böylece sistemin bakım ve genişletilmesi daha kolay hale gelir.
+
+### 🔸 Kullanım Senaryoları
+
+- Büyük ve karmaşık sistemlerde, kullanıcı dostu bir arayüz sağlamak için Facade Design Pattern kullanılır. Bu, kullanıcıların yalnızca gerekli olan bilgilere ve işlemlere odaklanmasını sağlar, alt sistemlerin karmaşıklığı ise gizlenir.
+
+- Sistem bakımında kolaylık sağlamak için alt sistemlerde yapılacak değişiklikler, Facade üzerinden yapılır ve kullanıcı etkilenmez.
+
+Facade Design Pattern, özellikle karmaşık sistemlerin yönetilmesi gereken durumlarda oldukça faydalıdır, çünkü sistemi daha modüler hale getirir ve kullanıcıların sadece belirli işlevlere erişmesini sağlar. Bu sayede sistemin bakımı, kullanımı ve genişletilmesi daha verimli olur.
+
+
